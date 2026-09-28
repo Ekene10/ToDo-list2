@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Times Table</title>
+</head>
+<body>
+    <input type="text" id="inp1">
+    <input type="text" id="inp2">
+    <button onclick="enterButton()">Enter</button>
+    <div id="output"></div>
+    
+
+</body>
+<script>
+   let firstInput = document.getElementById('inp1')
+   let secondInput = document.getElementById('inp2')
+   let output = document.getElementById('output')
+   
+   function enterButton() {
+    firstInputVal = firstInput.value.trim()
+    secondInputVal = secondInput.value.trim()
+      firstInputVal = +firstInputVal
+      secondInputVal = +secondInputVal
+    if (!firstInputVal || !secondInputVal) {
+       alert('ALl fields are required you idiot');
+    }
+    if (firstInputVal < secondInputVal) {
+      let outputText = ''
+       for (let index = firstInputVal; index < secondInputVal; index++ ) {
+       // const element = array[index]; firstInputVal       
+         outputText += `<div>${index} Times Table</div>`
+          for (let i = 1; i <= 12; i++){
+            //const element = array[index];
+          outputText += `<div>${index} X ${i} = ${index * i}</div>`
+           
+         }
+          }
+      //  output.innerHTML = output
+        
+         output.innerHTML = outputText
+       
+       
+    }
+    
+   }
+
+</script>
+</html>
