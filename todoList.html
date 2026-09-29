@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+        background-color: #f4f6f8;
+        padding-top: 50px;
+    }
+
+    .bodyContainer {
+        margin: auto;
+        width: 400px;
+        background-color: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Input & Add Button Styling */
+    #inp1 {
+        width: 70%;
+        padding: 10px 12px;
+        border: 1px solid #cbd5e1;
+        border-radius: 6px;
+        font-size: 14px;
+        outline: none;
+        transition: border-color 0.2s;
+    }
+
+    #inp1:focus {
+        border-color: #3b82f6;
+    }
+
+    .bodyContainer > button {
+        width: 27%;
+        padding: 10px 0;
+        background-color: #3b82f6;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
+
+    .bodyContainer > button:hover {
+        background-color: #2563eb;
+    }
+
+    /* ToDo Items List Container */
+    #output {
+        margin-top: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .toDoContainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+        padding: 8px 12px;
+    }
+
+    .toDoContainer p {
+        margin: 0;
+        font-size: 15px;
+        color: #1e293b;
+        word-break: break-word;
+    }
+
+    /* Edit & Delete Buttons */
+    .toDoContainer button {
+        padding: 6px 10px;
+        border: none;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: opacity 0.2s;
+    }
+
+    .toDoContainer button:first-child {
+        background-color: #eab308;
+        color: white;
+        margin-right: 4px;
+    }
+
+    .toDoContainer button:last-child {
+        background-color: #ef4444;
+        color: white;
+    }
+
+    .toDoContainer button:hover {
+        opacity: 0.85;
+    }
+</style>
+<body>
+    <div class="bodyContainer">   
+    <input type="text" id="inp1">
+    <button onclick="enterToDo()">Add ToDo</button>
+    <div id="output"></div>
+    </div>
+</body>
+ <script>
+
+   let input = document.getElementById('inp1')
+
+   let toDoArr = []
+   output.innerHTML = ''
+   function enterToDo() {
+    
+    inputValue = input.value.trim() 
+    result = `<div class="toDoContainer"><p>
+        ${toDoArr.length + 1}. ${inputValue}
+    </p>  
+      <div>
+       <button>Edit</button> <button>Delete</button>
+      </div>
+    </div> `
+    if (inputValue) {
+
+        toDoArr.push(inputValue) 
+        console.log(toDoArr);
+    } else{
+        alert ('input a ToDo Abeg')
+        return;
+    }
+    
+    
+    
+    
+      output.innerHTML += result
+      input.value = ''
+   }
+   
+</script>
+</html>
